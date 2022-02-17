@@ -1,0 +1,17 @@
+- pipeline: "Test"
+  on: "CLICK"
+  refs:
+  - "refs/heads/*"
+  priority: "NORMAL"
+  fail_on_prepare_env_warning: true
+- action: "Execute: echo \"Hello World\""
+  type: "BUILD"
+  working_directory: "/buddy/portfolio"
+  docker_image_name: "library/ubuntu"
+  docker_image_tag: "18.04"
+  execute_commands:
+  - "echo \"Hello World\""
+  volume_mappings:
+  - "/:/buddy/portfolio"
+  cache_base_image: true
+  shell: "BASH"
